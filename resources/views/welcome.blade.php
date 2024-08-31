@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    @livewire('clicker')
     <div id="head" class="flex border-t-2 border-blue-800">
         <div class="w-full">
             <header class="flex items-center justify-between h-20 px-6 bg-white border-b border-b-gray-200">
