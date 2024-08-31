@@ -22,24 +22,26 @@ class Clicker extends Component
     #[Rule('nullable|sometimes|image|max:1024')]
     public $image;
     public function createNewUser(){
-        sleep(2);
        $validated = $this->validate();
 
         if($this->image){
             $validated['image'] = $this->image->store('images','public');
         }
-        User::create($validated);
+        $user = User::create($validated);
         $this->reset(['name','email','password']);
 
         request()->session()->flash('message', 'User Created Successfully.');
 
+        $this->dispatch('user-created', $user);
+
+    }
+
+    public function reloadList(){
+        $this->dispatch('user-created');
     }
     public function render()
     {
-        $users = User::paginate(5);
-        return view('livewire.clicker',[
-            'users' => $users
-            ]
-        );
+
+        return view('livewire.clicker');
     }
 }

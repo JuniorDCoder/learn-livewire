@@ -17,7 +17,11 @@
                 @enderror
             </div>
             @else
-                <p class="text-sm font-semibold text-gray-900">{{$todo->name}}</p>
+                @if($todo->completed)
+                    <p class="text-sm text-gray-900 line-through">{{$todo->name}}</p>
+                @else
+                    <p class="text-sm font-semibold text-gray-900">{{$todo->name}}</p>
+                @endif
             @endif
 
 
