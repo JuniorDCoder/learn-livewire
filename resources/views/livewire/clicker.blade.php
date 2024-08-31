@@ -30,7 +30,10 @@
         <div wire:loading wire:target='image'>
             <span class="my-2 text-green-500">Uploading ...</span>
         </div>
-        <button class="block px-3 py-1 mb-2 text-white bg-gray-400 rounded">Create</button>
+        <div wire:loading.delay wire:target='createNewUser'>
+            <span class="my-2 text-green-500">Creating ...</span>
+        </div>
+        <button wire:loading.class='bg-gray-500' wire:loading.attr='disbaled' class="block px-3 py-1 mb-2 text-white bg-green-400 rounded">Create +</button>
     </form>
     <hr>
 
