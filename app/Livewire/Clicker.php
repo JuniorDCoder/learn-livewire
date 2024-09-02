@@ -39,9 +39,4 @@ class Clicker extends Component
     public function reloadList(){
         $this->dispatch('user-created');
     }
-    public function render()
-    {
-
-        return view('livewire.clicker');
-    }
 }

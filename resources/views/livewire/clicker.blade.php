@@ -26,7 +26,7 @@
             <p class="text-red-500">{{$message}}</p>
         @enderror
         @if ($image)
-            <img src="{{$image->temporaryUrl()}}" alt="image" class="block w-40 h-40 my-5 rounded">
+            <img src="{{$image->temporaryUrl()}}" alt="image" class="block w-[50%] my-5 rounded h-44">
         @endif
         <div wire:loading wire:target='image'>
             <span class="my-2 text-green-500">Uploading ...</span>
@@ -39,5 +39,5 @@
     </form>
     <hr>
 
-   @livewire('users-list', ['lazy' => true])
+    <livewire:users-list search="">
 </div>
